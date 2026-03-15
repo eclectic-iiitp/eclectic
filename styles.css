@@ -505,8 +505,13 @@ ul {
 }
 
 .about-img {
-  min-height: 350px;
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  max-height: 450px;
+  object-fit: contain;
   border-radius: 6px;
+  display: block;
 }
 
 .about-quote {
@@ -601,6 +606,27 @@ ul {
   margin-bottom: 1rem;
 }
 
+.team-grid--centered {
+  grid-template-columns: repeat(2, minmax(0, 300px));
+  justify-content: center;
+}
+
+.team-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.team-card-link:hover {
+  color: inherit;
+}
+
+.team-card-link:hover .team-card {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(59, 47, 36, 0.1);
+}
+
 .team-card {
   text-align: center;
   padding: 2rem 1.5rem;
@@ -625,6 +651,8 @@ ul {
   min-height: 170px;
   border-radius: 4px;
   margin: 0 auto;
+  object-fit: cover;
+  display: block;
 }
 
 .team-name {
@@ -1199,11 +1227,39 @@ ul {
   border-radius: 6px;
 }
 
+.podcast-cover-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 6px 24px rgba(59, 47, 36, 0.12);
+  border: 1px solid var(--color-border);
+}
+
 .podcast-show-name {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   color: var(--color-dark-brown);
   margin-bottom: 1rem;
+}
+
+.podcast-show-name a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.podcast-show-name a:hover {
+  color: var(--color-burgundy);
+}
+
+.podcast-cover-img {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.podcast-artwork a:hover .podcast-cover-img {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(59, 47, 36, 0.18);
 }
 
 .podcast-description {
@@ -1216,6 +1272,29 @@ ul {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+
+.podcast-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--color-cream);
+  background: linear-gradient(135deg, var(--color-dark-brown) 0%, var(--color-espresso) 100%);
+  padding: 0.75rem 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+}
+
+.podcast-cta-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 47, 36, 0.2);
+  background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-burgundy-deep) 100%);
+  color: var(--color-cream);
 }
 
 .podcast-episodes-title {

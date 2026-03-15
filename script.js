@@ -220,4 +220,19 @@
   // Initial calls
   handleNavScroll();
   handleScrollSpy();
+
+  // ── Handle URL hash on page load ──
+  // Scrolls to the target section if a hash is present (e.g. deeyeti.online/#contact)
+  if (window.location.hash) {
+    // Small delay to let animations/layout settle
+    setTimeout(function () {
+      var hash = window.location.hash;
+      var target = document.querySelector(hash);
+      if (target) {
+        var navHeight = nav.offsetHeight;
+        var targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    }, 400);
+  }
 })();
